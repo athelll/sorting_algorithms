@@ -25,16 +25,28 @@ void insertion_sort_list(listint_t **list)
 			/** pushes prev forward **/
 			prev->next = current->next;
 			prev->prev = current;
+
 			/** pushes current backward **/
-			current->next->prev = prev;
-			current->next = prev;
-			// problematic
-			current->prev = buffer->prev;
-			current->prev->next = current;
+			if (current->next == NULL)
+			{
+				current->next = prev;
+			} else
+			{
+				current->next->prev = prev;
+				current->next = prev;
+			}
+
+			// handles pushing to the top
+			if (buffer->prev == NULL) {
+				current->prev = NULL;
+				*list = current;
+			} else {
+				current->prev = buffer->prev;
+				current->prev->next = current;
+			}
 			print_list(*list);
 			prev = current->prev;
 		}
 		current = current->next;
-		printf("%p\n", current);
 	}
 }
