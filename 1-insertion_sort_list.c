@@ -1,23 +1,26 @@
 #include "sort.h"
-#include <stdlib.h>
-#include <stdio.h>
-/*
-*
-*
-*/
+
+/**
+	* insertion_sort_list- insertion sort algorithm to sort a Doubly-Linked list
+	* compares the n datum of the nodes to sort
+	*	@list: pointer to Doubly-Linked list
+	*/
+
 void insertion_sort_list(listint_t **list)
 {
-	int a;
-	listint_t *buffer;
-	listint_t *prev;
+	listint_t *buffer, *prev;
 	listint_t *current = *list;
-	
-	while(current != NULL)
-	{
-		a = current->n;
-		prev = current->prev;
 
-		while (prev != NULL && prev->n > a)
+	buffer = malloc(sizeof(listint_t));
+	prev = malloc(sizeof(listint_t));
+
+	if (buffer == NULL || prev == NULL)
+		return;
+
+	while (current != NULL)
+	{
+		prev = current->prev;
+		while ((prev != NULL) && (prev->n > current->n))
 		{
 			/** buffer for prev ptrs **/
 			buffer->next = prev->next;
@@ -25,22 +28,17 @@ void insertion_sort_list(listint_t **list)
 			/** pushes prev forward **/
 			prev->next = current->next;
 			prev->prev = current;
-
-			/** pushes current backward **/
-			if (current->next == NULL)
-			{
-				current->next = prev;
-			} else
-			{
+			/** from here logic pushes current backward **/
+			if (current->next != NULL)
 				current->next->prev = prev;
-				current->next = prev;
-			}
-
-			// handles pushing to the top
-			if (buffer->prev == NULL) {
+			current->next = prev;
+			/** handles pushing to the beginning **/
+			if (buffer->prev == NULL)
+			{
 				current->prev = NULL;
 				*list = current;
-			} else {
+			} else
+			{
 				current->prev = buffer->prev;
 				current->prev->next = current;
 			}
