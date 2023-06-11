@@ -14,7 +14,7 @@ void insertion_sort_list(listint_t **list)
 	buffer = malloc(sizeof(listint_t));
 	prev = malloc(sizeof(listint_t));
 
-	if (buffer == NULL || prev == NULL)
+	if (buffer == NULL || prev == NULL || *list == NULL)
 		return;
 
 	while (current != NULL)
