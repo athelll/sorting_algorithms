@@ -10,8 +10,7 @@ void insertion_sort_list(listint_t **list)
 	listint_t *buffer, *prev, *current = *list;
 
 	buffer = malloc(sizeof(listint_t));
-	prev = malloc(sizeof(listint_t));
-	if (buffer == NULL ||  prev == NULL || *list == NULL)
+	if (buffer == NULL || !(*list))
 		return;
 	if (current->next == NULL)
 	{
@@ -47,4 +46,5 @@ void insertion_sort_list(listint_t **list)
 		}
 		current = current->next;
 	}
+	free(buffer);
 }
