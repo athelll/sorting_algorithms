@@ -5,16 +5,14 @@
 	* compares the n datum of the nodes to sort
 	*	@list: pointer to Doubly-Linked list
 	*/
-
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *buffer, *prev, *current = *list;
 
 	buffer = malloc(sizeof(listint_t));
-	prev = malloc(sizeof(listint_t));
-
-	if (buffer == NULL || prev == NULL || *list == NULL)
+	if (buffer == NULL || *list == NULL || list == NULL)
 		return;
+
 	if (current->next == NULL)
 	{
 		print_list(*list);
@@ -43,6 +41,7 @@ void insertion_sort_list(listint_t **list)
 				current->prev = buffer->prev;
 				current->prev->next = current;
 			}
+
 			print_list(*list);
 			prev = current->prev;
 		}
