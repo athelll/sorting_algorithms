@@ -8,31 +8,32 @@
 
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *buffer, *prev;
-	listint_t *current = *list;
+	listint_t *buffer, *prev, *current = *list;
 
 	buffer = malloc(sizeof(listint_t));
 	prev = malloc(sizeof(listint_t));
 
 	if (buffer == NULL || prev == NULL || *list == NULL)
 		return;
+	if (current->next == NULL)
+	{
+		print_list(*list);
+		return;
+	}
 
 	while (current != NULL)
 	{
 		prev = current->prev;
-		while ((prev != NULL) && (prev->n > current->n))
+		while ((prev != NULL) && (prev->n > current->n)) /** backtracks & compare **/
 		{
-			/** buffer for prev ptrs **/
-			buffer->next = prev->next;
+			buffer->next = prev->next; /** buffer for prev ptrs **/
 			buffer->prev = prev->prev;
-			/** pushes prev forward **/
-			prev->next = current->next;
+			prev->next = current->next; /** pushes prev forward **/
 			prev->prev = current;
-			/** from here logic pushes current backward **/
-			if (current->next != NULL)
+
+			if (current->next != NULL) /** from here logic pushes current backward **/
 				current->next->prev = prev;
 			current->next = prev;
-			/** handles pushing to the beginning **/
 			if (buffer->prev == NULL)
 			{
 				current->prev = NULL;
