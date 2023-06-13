@@ -23,14 +23,8 @@ void selection_sort(int *array, size_t size)
 {
 	size_t a, b, min;
 
-	if (!array || !size || size == 0)
+	if (!array || !size || size == 0 || size == 1)
 		return;
-
-	if (size == 1)
-	{
-		print_array(array, size);
-		return;
-	}
 
 	for (a = 0; a < size - 1; a++)
 	{
