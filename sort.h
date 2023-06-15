@@ -30,10 +30,16 @@ void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void shell_sort(int *array, size_t size);
+void cocktail_sort_list(listint_t **list);
 
 /** my function decalrations **/
 void swap(int *array, int first, int second, size_t size);
 void sort_quick(int *array, int low, int high, size_t size);
 int partition(int *array, int low, int high, size_t size);
+/** cocktail_sort **/
+void node_swapper(listint_t *current, listint_t *prev, listint_t **list);
+listint_t* last_node(listint_t **list);
+bool forward_sorter(listint_t* current, listint_t **list);
+bool backward_sorter(listint_t* current, listint_t **list);
 
 #endif
