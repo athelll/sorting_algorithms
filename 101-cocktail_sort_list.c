@@ -44,8 +44,9 @@ void node_swapper(listint_t *first, listint_t *second, listint_t **list)
  */
 swap_data forward_sorter(listint_t *current, listint_t **list)
 {
-	swap_data swapped = {false, current};
+	swap_data swapped;
 
+	swapped.is_swapped = false;
 	while (current && current->next)
 	{
 		if (current->n > current->next->n)
@@ -56,6 +57,7 @@ swap_data forward_sorter(listint_t *current, listint_t **list)
 			continue;
 		}
 		current = current->next;
+		swapped.current = current;
 	}
 	return (swapped);
 }
@@ -71,8 +73,9 @@ swap_data forward_sorter(listint_t *current, listint_t **list)
  */
 swap_data backward_sorter(listint_t *current, listint_t **list)
 {
-	swap_data swapped = {false, current};
+	swap_data swapped;
 
+	swapped.is_swapped = false;
 	while (current && current->prev)
 	{
 		if (current->n < current->prev->n)
@@ -83,6 +86,7 @@ swap_data backward_sorter(listint_t *current, listint_t **list)
 			continue;
 		}
 		current = current->prev;
+		swapped.current = current;
 	}
 	return (swapped);
 }
@@ -100,7 +104,7 @@ void cocktail_sort_list(listint_t **list)
 	listint_t *head_node = *list;
 	listint_t *end_node;
 
-	if (!list || !(list->next))
+	if (!list || !(*list) || (*list)->next == NULL)
 		return;
 
 	do {

@@ -20,10 +20,16 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
+/**
+ * struct swap_data - metadata datatype to store
+ * swapped state and last swapped node;
+ * @is_swapped: flag that tells if a swap occurred
+ * @current: current node that was swapped
+ */
 typedef struct swap_data
 {
 	bool is_swapped;
-	listint_t* current;
+	listint_t *current;
 } swap_data;
 
 /** initial functions **/
@@ -44,8 +50,8 @@ void sort_quick(int *array, int low, int high, size_t size);
 int partition(int *array, int low, int high, size_t size);
 /** cocktail_sort **/
 void node_swapper(listint_t *current, listint_t *prev, listint_t **list);
-listint_t* last_node(listint_t **list);
-swap_data forward_sorter(listint_t* current, listint_t **list);
-swap_data backward_sorter(listint_t* current, listint_t **list);
+listint_t *last_node(listint_t **list);
+swap_data forward_sorter(listint_t *current, listint_t **list);
+swap_data backward_sorter(listint_t *current, listint_t **list);
 
 #endif
