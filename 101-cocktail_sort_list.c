@@ -93,7 +93,7 @@ swap_data backward_sorter(listint_t *current, listint_t **list)
 
 /**
  * cocktail_sort_list - Algorithm that applies cocktail sort
- * a Doubly-linked list
+ * Doubly-linked lists.
  *
  * @list: pointer to Doubly-linked list
  */
