@@ -43,6 +43,7 @@ void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void shell_sort(int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
+void counting_sort(int *array, size_t size);
 
 /** my custom function decalrations and datatypes **/
 void swap(int *array, int first, int second, size_t size);
@@ -53,5 +54,12 @@ void node_swapper(listint_t *current, listint_t *prev, listint_t **list);
 listint_t *last_node(listint_t **list);
 swap_data forward_sorter(listint_t *current, listint_t **list);
 swap_data backward_sorter(listint_t *current, listint_t **list);
+/** cocktail_sort **/
+/** counting_sort **/
+int max_value(int *array, int len);
+int key(int element);
+int *init_count(int size);
+void reorder_array(int *array1, int *array2, int len);
+/** counting_sort **/
 
 #endif
