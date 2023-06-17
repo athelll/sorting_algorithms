@@ -85,14 +85,14 @@ void counting_sort(int *array, size_t size)
 	int max_element;
 	int a, b;
 
-	max_element = max_value(array, size - 1);
+	max_element = max_value(array, size);
 	count = init_count(max_element + 1);
 	output = malloc(sizeof(int) * size);
 
 	if (!count || !output || !array || !size)
 		return;
 
-	if (size == 0 || size == 1)
+	if (size < 2)
 		return;
 
 	for (a = 0; a < (int)size; a++)
