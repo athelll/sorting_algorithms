@@ -7,7 +7,7 @@ Contents:
 - Code examples with clear explanations to help understand the inner workings of each algorithm.
 - Efficiency and time/space complexities of the implemented algorithms.
 
-By studying and experimenting with the code in this repository, I enhanced my understanding of sorting algorithms, their time complexity, and their applications in real-world scenarios.
+By studying and implementing the code in this repository, I enhanced my understanding of sorting algorithms, their time complexity, and their applications in real-world scenarios.
 
 Author: Felix O. [Twitter](https://twitter.com/felixhatesbugs)
 ALX/Holberton SE.
