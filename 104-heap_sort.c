@@ -31,7 +31,7 @@ void swap_values(int *array, int first, int second)
  * Description:
  * this algorithm works by finding the largest in a binary heap branch and
  * making it the root and recursively do the same thing over again to the prior
- * node that was the node, but unfit to be due to not being the largest.
+ * node that was the root, but unfit to be due to not being the largest.
  * it stops when all root nodes in the binary heap are now the largest of thier
  * branch.
  */
