@@ -5,6 +5,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * struct listint_s - Doubly linked list node
@@ -35,7 +36,6 @@ typedef struct swap_data
 /** initial functions **/
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
-
 /** sorting algorithms prototypes **/
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
@@ -45,7 +45,7 @@ void shell_sort(int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
 void counting_sort(int *array, size_t size);
 void merge_sort(int *array, size_t size);
-
+void heap_sort(int *array, size_t size);
 /** my custom function decalrations and datatypes **/
 void swap(int *array, int first, int second, size_t size);
 void sort_quick(int *array, int low, int high, size_t size);
